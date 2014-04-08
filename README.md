@@ -1,4 +1,4 @@
-golem
-=====
+summarizer
+==========
 
-Yoozi day-to-day dev toolkits.
+PHP library to extract the summary from public web pages.
