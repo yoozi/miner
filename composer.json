@@ -1,5 +1,5 @@
 {
-    "name": "yoozi/email",
+    "name": "yoozi/miner",
     "description": "PHP library to extract the metadata from a public web page and/or summarize it.",
     "keywords": ["golem", "summarize", "webpage", "metadata"],
     "homepage": "http://golem.yoozi.cn/",
