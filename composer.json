@@ -1,7 +1,7 @@
 {
     "name": "yoozi/miner",
     "description": "PHP library to extract the metadata from a public web page and/or summarize it.",
-    "keywords": ["golem", "summarize", "webpage", "metadata"],
+    "keywords": ["yoozi", "golem", "summarize", "readability", "webpage", "metadata"],
     "homepage": "http://golem.yoozi.cn/",
     "type": "library",
     "license": "MIT",
