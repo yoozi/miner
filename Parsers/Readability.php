@@ -59,7 +59,7 @@ class Readability extends AbstractParser
      *
      * @var array
      */
-    private $junkTags = Array(
+    private $junkTags = array(
         "style", "form", "iframe", "script", "button", "input", "textarea",
         "noscript", "select", "option", "object", "applet", "basefont",
         "bgsound", "blink", "canvas", "command", "menu", "nav", "datalist",
@@ -71,7 +71,7 @@ class Readability extends AbstractParser
      *
      * @var array
      */
-    private $junkAttrs = Array(
+    private $junkAttrs = array(
         "style", "class", "onclick", "onmouseover", "align", "border", "margin"
     );
 
@@ -136,15 +136,15 @@ class Readability extends AbstractParser
      * @see    https://github.com/feelinglucky/php-readability/blob/master/lib/Readability.inc.php
      * @return \DOMNode
      */
-    private function getTopBox() {
-
+    private function getTopBox()
+    {
         // 获得页面所有的章节
         $allParagraphs = $this->dom->getElementsByTagName("p");
 
         // Study all the paragraphs and find the chunk that has the best score.
         // A score is determined by things like: Number of <p>'s, commas, special classes, etc.
         $i = 0;
-        while($paragraph = $allParagraphs->item($i++)) {
+        while ($paragraph = $allParagraphs->item($i++)) {
             $parentNode   = $paragraph->parentNode;
             $contentScore = intval($parentNode->getAttribute(self::ATTR_CONTENT_SCORE));
             $className    = $parentNode->getAttribute("class");
@@ -155,7 +155,8 @@ class Readability extends AbstractParser
                 $contentScore -= 50;
             } elseif (preg_match(
                 "/((^|\\s)(post|hentry|entry[-]?(content|text|body)?|article[-]?(content|text|body)?)(\\s|$))/i",
-                $className)) {
+                $className
+            )) {
                 $contentScore += 25;
             }
 
@@ -164,7 +165,8 @@ class Readability extends AbstractParser
                 $contentScore -= 50;
             } elseif (preg_match(
                 "/^(post|hentry|entry[-]?(content|text|body)?|article[-]?(content|text|body)?)$/i",
-                $id)) {
+                $id
+            )) {
                 $contentScore += 25;
             }
 
@@ -209,7 +211,7 @@ class Readability extends AbstractParser
         $tags = $this->contentDom->getElementsByTagName("*");
 
         $i = 0;
-        while($tag = $tags->item($i++)) {
+        while ($tag = $tags->item($i++)) {
             $tag->removeAttribute($attr);
         }
 
@@ -226,7 +228,7 @@ class Readability extends AbstractParser
     {
         $tags = $this->contentDom->getElementsByTagName($tagName);
 
-        while($tag = $tags->item(0)){
+        while ($tag = $tags->item(0)){
             $parentNode = $tag->parentNode;
             $parentNode->removeChild($tag);
         }

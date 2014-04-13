@@ -28,7 +28,7 @@ class Hybrid extends AbstractParser
      */
     public function parse()
     {
-        if ( ! $this->dom) {
+        if (! $this->dom) {
             return $this->meta;
         }
 

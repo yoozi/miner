@@ -87,7 +87,7 @@ abstract class AbstractParser implements ParserInterface
      */
     public function parse()
     {
-        if ( ! $this->dom) {
+        if (! $this->dom) {
             return $this->meta;
         }
 
@@ -114,7 +114,7 @@ abstract class AbstractParser implements ParserInterface
     {
         $charset = $this->response->getHeaderAttribute('Content-Type', 'charset');
 
-        if ( ! $charset) {
+        if (! $charset) {
             preg_match("/charset=([\w|\-]+);?/", $this->response->getContent(), $match);
             return isset($match[1]) ? $match[1] : 'utf-8';
         }
@@ -186,8 +186,7 @@ abstract class AbstractParser implements ParserInterface
             return sizeof($result) > 1 ? array_pop($result) : $title;
         }
 
-        if ($node = $this->firstDomNode("h1"))
-        {
+        if ($node = $this->firstDomNode("h1")) {
             return $node->textContent;
         }
 

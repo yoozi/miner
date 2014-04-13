@@ -42,7 +42,7 @@ class Meta extends AbstractParser
      */
     public function parse()
     {
-        if ( ! $this->dom) {
+        if (! $this->dom) {
             return $this->meta;
         }
 
@@ -66,8 +66,7 @@ class Meta extends AbstractParser
 
             // We'll try to fetch the cover image from microdata (@see schema.org),
             // if it is absent from the open graph tags.
-            if (
-                ! $this->og['image'] &&
+            if (! $this->og['image'] &&
                 $tag->hasAttribute('itemprop') &&
                 $tag->getAttribute('property') == 'image'
             ) {

@@ -64,7 +64,7 @@ class Extractor extends Browser implements JsonableInterface, ArrayableInterface
             return $this->metadata = $callback ? $callback($metadata) : $metadata;
         }
 
-        // $this->exception($response);
+        $this->exception($response);
     }
 
     /**
