@@ -92,9 +92,7 @@ abstract class AbstractParser implements ParserInterface
         }
 
         foreach ($this->meta as $key => $value) {
-
             $mutator = 'get' . studly_case($key);
-
             if (method_exists($this, $mutator)) {
                 // We will use a mutator to process an attribute value if
                 // we found one, otherwise we'll do nothing.
@@ -118,7 +116,6 @@ abstract class AbstractParser implements ParserInterface
 
         if ( ! $charset) {
             preg_match("/charset=([\w|\-]+);?/", $this->response->getContent(), $match);
-
             return isset($match[1]) ? $match[1] : 'utf-8';
         }
 

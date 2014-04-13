@@ -51,9 +51,7 @@ class Meta extends AbstractParser
         foreach ($this->dom->getElementsByTagName('meta') as $tag) {
 
             if ($tag->hasAttribute('property')) {
-
                 $property = strtolower(trim($tag->getAttribute('property')));
-
                 if (strpos($property, 'og:') === 0 && $key = substr($property, 3)) {
                     $this->og[$key] = $tag->getAttribute('content');
                     continue;
@@ -61,9 +59,7 @@ class Meta extends AbstractParser
             }
 
             if ($tag->hasAttribute('name')) {
-
                 $name = strtolower(trim($tag->getAttribute('name')));
-
                 if (in_array($name, array('author', 'keywords', 'description'))) {
                     $this->meta[$name] = $tag->getAttribute('content');
                     continue;
