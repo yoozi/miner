@@ -129,7 +129,6 @@ class Extractor extends Browser implements JsonableInterface, ArrayableInterface
     private function factory($config, $request, $response)
     {
         $class = 'Yoozi\\Miner\\Parsers\\' . ucfirst($config->get('parser'));
-
         return new $class($config, $request, $response);
     }
 }

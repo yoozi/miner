@@ -10,9 +10,7 @@
  */
 namespace Yoozi\Miner\Parsers;
 
-use Yoozi\Miner\Config;
 use Yoozi\Miner\Parsers\AbstractParser;
-use Buzz\Message\Response;
 
 /**
  * Summarize a public webpage by parsing its meta tags.
