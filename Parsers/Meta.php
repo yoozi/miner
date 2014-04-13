@@ -81,7 +81,7 @@ class Meta extends AbstractParser
     }
 
     /**
-     * Return the description of the document.
+     * Return the title of the document.
      *
      * @return string
      */
