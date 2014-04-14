@@ -10,10 +10,6 @@
  */
 namespace Yoozi\Miner\Parsers;
 
-use Yoozi\Miner\Parsers\AbstractParser;
-use Yoozi\Miner\Parsers\Meta;
-use Yoozi\Miner\Parsers\Readability;
-
 /**
  * Hybrid parser.
  *
@@ -34,7 +30,7 @@ class Hybrid extends AbstractParser
 
         foreach (array('meta', 'readability') as $vendor) {
             $class = 'Yoozi\\Miner\\Parsers\\' . ucfirst($vendor);
-            $$vendor = new $class($this->config, $this->request, $this->response);
+            $$vendor = new $class($this->config, $this->dom);
             $$vendor = $$vendor->parse();
         }
 
@@ -42,6 +38,6 @@ class Hybrid extends AbstractParser
         $suggest['image'] = $meta['image'] ?: $readability['image'];
         $suggest['description'] = $readability['description'] ?: $meta['description'];
 
-        return compact('suggest', 'meta', 'readability');
+        return $suggest;
     }
 }

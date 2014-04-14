@@ -10,8 +10,6 @@
  */
 namespace Yoozi\Miner\Parsers;
 
-use Yoozi\Miner\Parsers\AbstractParser;
-
 /**
  * Summarize a public webpage by parsing its meta tags.
  *

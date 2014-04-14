@@ -10,8 +10,6 @@
  */
 namespace Yoozi\Miner\Parsers;
 
-use Yoozi\Miner\Parsers\AbstractParser;
-
 /**
  * PHP Port of Arc90's Readability.
  *
@@ -97,7 +95,7 @@ class Readability extends AbstractParser
 
         $this->content = mb_convert_encoding(
             $this->contentDom->saveHTML(),
-            self::DOM_DEFAULT_CHARSET,
+            'utf-8',
             "HTML-ENTITIES"
         );
 
