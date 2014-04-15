@@ -201,7 +201,7 @@ class Readability extends AbstractParser
     /**
      * 删除 DOM 元素中所有的 $attr 元素
      *
-     * @param  string $attr
+     * @param  string       $attr
      * @return \DOMDocument
      */
     private function removeJunkAttr($attr)
@@ -219,14 +219,14 @@ class Readability extends AbstractParser
     /**
      * 删除 DOM 元素中所有的 $tagName 标签
      *
-     * @param  string $tagName
+     * @param  string       $tagName
      * @return \DOMDocument
      */
     private function removeJunkTag($tagName)
     {
         $tags = $this->contentDom->getElementsByTagName($tagName);
 
-        while ($tag = $tags->item(0)){
+        while ($tag = $tags->item(0)) {
             $parentNode = $tag->parentNode;
             $parentNode->removeChild($tag);
         }

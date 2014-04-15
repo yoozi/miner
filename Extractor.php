@@ -63,7 +63,7 @@ class Extractor implements JsonableInterface, ArrayableInterface
     /**
      * Set up the configuration for this extrator.
      *
-     * @param  array    $config
+     * @param array $config
      */
     public function __construct(array $config = array())
     {
@@ -73,8 +73,8 @@ class Extractor implements JsonableInterface, ArrayableInterface
     /**
      * Run the extraction on the HTML content, and apply $callback if necessary.
      *
-     * @param  string    $source
-     * @param  \Clousure $callback
+     * @param  string                                    $source
+     * @param  \Clousure                                 $callback
      * @throws \Yoozi\Miner\Exception\RuntimeException
      * @return \Yoozi\Miner\Extractor
      */
@@ -121,7 +121,7 @@ class Extractor implements JsonableInterface, ArrayableInterface
     /**
      * Set the document directly from HTML source.
      *
-     * @param  string $source
+     * @param  string                 $source
      * @return \Yoozi\Miner\Extractor
      */
     public function fromSource($source)
@@ -238,7 +238,7 @@ class Extractor implements JsonableInterface, ArrayableInterface
     /**
      * Helper function to return the current HTML as a DOMDocument.
      *
-     * @param  string $html
+     * @param  string       $html
      * @return \DOMDocument
      */
     protected function toDomDocument($html)
