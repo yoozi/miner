@@ -109,7 +109,7 @@ abstract class AbstractParser implements ParserInterface
     /**
      * Return the first node in the DOM tree, or null on failure.
      *
-     * @param  string $tagName
+     * @param  string        $tagName
      * @return \DOMNode|null
      */
     protected function firstDomNode($tagName)

@@ -73,8 +73,8 @@ class Extractor implements JsonableInterface, ArrayableInterface
     /**
      * Run the extraction on the HTML content, and apply $callback if necessary.
      *
-     * @param  string                                    $source
-     * @param  \Clousure                                 $callback
+     * @param  string                                  $source
+     * @param  \Clousure                               $callback
      * @throws \Yoozi\Miner\Exception\RuntimeException
      * @return \Yoozi\Miner\Extractor
      */
