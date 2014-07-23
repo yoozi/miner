@@ -14,7 +14,7 @@
     ],
     "require": {
         "php": ">=5.3.0",
-        "illuminate/support": "~4.1",
+        "illuminate/support": "~4.0",
         "kriswallsmith/buzz": "~0.10",
         "jeremykendall/php-domain-parser": "~1.2"
     },
