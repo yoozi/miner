@@ -27,6 +27,10 @@ class Config implements ArrayableInterface, JsonableInterface
      */
     protected $items = array(
         'parser'     => 'hybrid',
+        'hybrid'     => array(
+            'primary'   => 'readability',
+            'secondary' => 'meta'
+        ),
         'headers'    => array(
             'User-Agent' => 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0)'
         ),

@@ -13,7 +13,7 @@ namespace Yoozi\Miner\Parsers;
 /**
  * Hybrid parser.
  *
- *  We take Readability as the primary parser, and Meta as its fallback.
+ * We take Readability as the primary parser, and Meta as its fallback.
  *
  * @author Saturn HU <yangg.hu@yoozi.cn>
  */
@@ -34,10 +34,15 @@ class Hybrid extends AbstractParser
             $$vendor = $$vendor->parse();
         }
 
-        $suggest = $meta;
-        $suggest['image'] = $meta['image'] ?: $readability['image'];
-        $suggest['description'] = $readability['description'] ?: $meta['description'];
+        extract($this->config->get('hybrid'));
 
-        return $suggest;
+        $primary   = $$primary;
+        $secondary = $$secondary;
+
+        array_walk($primary, function(&$value, $key) use ($secondary) {
+            $value = $value ?: $secondary[$key];
+        });
+
+        return $primary;
     }
 }

@@ -28,11 +28,11 @@ class Meta extends AbstractParser
      * @var array $og
      */
     protected $og = array(
-        'title'       => '',
+        'title'       => null,
         'keywords'    => array(),
-        'author'      => '',
-        'description' => '',
-        'image'       => ''
+        'author'      => null,
+        'description' => null,
+        'image'       => null
     );
 
     /**

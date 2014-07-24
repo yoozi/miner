@@ -25,11 +25,11 @@ abstract class AbstractParser implements ParserInterface
      * @var array
      */
     public $meta = array(
-        'title'        => '',
-        'author'       => '',
+        'title'        => null,
+        'author'       => null,
         'keywords'     => array(),
-        'description'  => '',
-        'image'        => ''
+        'description'  => null,
+        'image'        => null
     );
 
     /**
