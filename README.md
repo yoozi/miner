@@ -1,5 +1,6 @@
 Miner
 ==========
+[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/yoozi/miner?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 > This library is part of [Project Golem](http://golem.yoozi.cn/), see [yoozi/golem](https://github.com/yoozi/golem) for more info.
 
