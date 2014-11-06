@@ -1,5 +1,6 @@
 Miner
 ==========
+[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/yoozi/miner?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 > This library is part of [Project Golem](http://golem.yoozi.cn/), see [yoozi/golem](https://github.com/yoozi/golem) for more info.
 
@@ -61,81 +62,47 @@ We can parse a remote url and extract its metadata directly.
 ```php
 <?php
 
-use Yoozi\LBS\Query\Place;
-use Yoozi\LBS\Search;
+use Yoozi\Miner\Extractor;
+use Buzz\Client\Curl;
 
-$place = new Place;
-$place->set('method', 'suggestion');
-$place->set('q', '尚德大厦');
-$place->set('region', '广州市');
+$extractor = new Extractor();
 
-$search = new Search('E4805d16520de693a3fe707cdc962045', $place);
+// Use the Hybrid Parser.
+$extractor->getConfig()->set('parser', 'hybrid');
+// Strip all HTML tags in the description we parsed.
+$extractor->getConfig()->set('strip_tags', true);
 
-var_dump($search->run()->toArray());
+$meta = $extractor->fromUrl('http://www.example.com/', new Curl)->run();
+var_dump($meta);
 ```
 
 Data returned:
 
 ```php
-array(3) {
-  ["status"]=>
-  int(0)
-  ["message"]=>
-  string(2) "ok"
-  ["result"]=>
-  array(4) {
-    [0]=>
-    array(5) {
-      ["name"]=>
-      string(12) "尚德大厦"
-      ["city"]=>
-      string(9) "广州市"
-      ["district"]=>
-      string(9) "天河区"
-      ["business"]=>
-      string(0) ""
-      ["cityid"]=>
-      string(3) "257"
-    }
-    [1]=>
-    array(5) {
-      ["name"]=>
-      string(16) "尚德大厦a座"
-      ["city"]=>
-      string(0) ""
-      ["district"]=>
-      string(0) ""
-      ["business"]=>
-      string(0) ""
-      ["cityid"]=>
-      string(1) "0"
-    }
-    [2]=>
-    array(5) {
-      ["name"]=>
-      string(22) "尚德大厦-停车场"
-      ["city"]=>
-      string(9) "广州市"
-      ["district"]=>
-      string(9) "天河区"
-      ["business"]=>
-      string(0) ""
-      ["cityid"]=>
-      string(3) "257"
-    }
-    [3]=>
-    array(5) {
-      ["name"]=>
-      string(18) "西安尚德大厦"
-      ["city"]=>
-      string(9) "西安市"
-      ["district"]=>
-      string(9) "新城区"
-      ["business"]=>
-      string(0) ""
-      ["cityid"]=>
-      string(3) "233"
-    }
+array(9) {
+  ["title"]=>
+  string(14) "Example Domain"
+  ["author"]=>
+  NULL
+  ["keywords"]=>
+  array(0) {
   }
+  ["description"]=>
+  string(220) "
+    Example Domain
+    This domain is established to be used for illustrative examples in documents. You may use this
+    domain in examples without prior coordination or asking for permission.
+    More information...
+"
+  ["image"]=>
+  NULL
+  ["url"]=>
+  string(23) "http://www.example.com/"
+  ["host"]=>
+  string(22) "http://www.example.com"
+  ["domain"]=>
+  string(11) "example.com"
+  ["favicon"]=>
+  string(52) "http://www.google.com/s2/favicons?domain=example.com"
 }
 ```
