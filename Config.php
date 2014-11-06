@@ -10,15 +10,12 @@
  */
 namespace Yoozi\Miner;
 
-use Illuminate\Support\Contracts\JsonableInterface;
-use Illuminate\Support\Contracts\ArrayableInterface;
-
 /**
  * Miner Configuration.
  *
  * @author Saturn HU <yangg.hu@yoozi.cn>
  */
-class Config implements ArrayableInterface, JsonableInterface
+class Config
 {
     /**
      * Holds the configrations for parsers.

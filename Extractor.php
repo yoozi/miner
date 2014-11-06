@@ -11,19 +11,17 @@
 namespace Yoozi\Miner;
 
 use Buzz\Browser;
-use Buzz\Client\ClientInterface as HttpClientInterface;
 use Pdp\Parser as DomainParser;
 use Pdp\PublicSuffixListManager;
-use Illuminate\Support\Contracts\JsonableInterface;
-use Illuminate\Support\Contracts\ArrayableInterface;
 use Yoozi\Miner\Exception\RuntimeException;
+use Buzz\Client\ClientInterface as HttpClientInterface;
 
 /**
  * Extract metadata from HTML source content.
  *
  * @author Saturn HU <yangg.hu@yoozi.cn>
  */
-class Extractor implements JsonableInterface, ArrayableInterface
+class Extractor
 {
     /**
      * Holds the parser.
